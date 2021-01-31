@@ -33,6 +33,7 @@ def main():
     packedsets = [set(filtered_set1.keys()), set(filtered_set2.keys()), set(filtered_set3.keys())]
 
     fig, ax = plt.subplots(1,1)
+    fig.set_size_inches(5,4)
 
     caption = (
         'The area weighted Venn diagram is shown for the gene sets matching the criteria'
