@@ -1,0 +1,51 @@
+id: MatplotlibVenn-{VER}
+meta:
+  title: Matplotlib Venn {VER}
+  subtitle: Plot a Venn diagram of selected sets
+  description: >
+    A Venn diagram is plotted for the three sets which can be passed in as dicts (geneMeta)
+endpoints:
+  backend:
+    cmd: python ./matplotlibvenn.py
+    type: docker
+    image: {GBOX}
+frontend:
+  args:
+    - type: text
+      label: Label for set 1
+      default: "A"
+      injectInto: labelSet1
+    - type: text
+      label: Label for set 2
+      default: "B"
+      injectInto: labelSet2
+    - type: text
+      label: Label for set 3
+      default: "C"
+      injectInto: labelSet3
+    - type: number
+      step: 0.01
+      label: >-
+        Max score considered for element to be in set
+      default: 999999
+      injectInto: maxScore
+    - type: number
+      step: 0.01
+      label: >-
+        Min score considered for element to be in set (if score is z-score, then greater than 3 makes sense)
+      default: 3.0
+      injectInto: minScore
+    - type: checkbox
+      label: Use a wordcloud instead of area weighting
+      default: false
+      injectInto: wordcloud
+  imports:
+    - kind: geneMeta
+      label: The dictionary of the first set of genes with corresponding scores
+      injectInto: set1
+    - kind: geneMeta
+      label: The dictionary of the second set of genes with corresponding scores
+      injectInto: set2
+    - kind: geneMeta
+      label: The dictionary of the third set of genes with corresponding scores
+      injectInto: set3
