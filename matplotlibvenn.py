@@ -38,7 +38,7 @@ def main():
     )
 
     if wordcloud:
-        out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
+        out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3), wordcloud_kwargs=dict(max_font_size=16), word_to_frequency=filtered_set1.update(filtered_set2).update(filtered_set3))
         for text in out.set_labels:
             if text:
                 text.set_fontsize(18)
