@@ -6,6 +6,7 @@ import numpy as np
 from granatum_sdk import Granatum
 from matplotlib_venn_wordcloud import venn3_wordcloud
 from matplotlib_venn import venn3
+import matplotlib.patheffects as path_effects
 
 
 def main():
@@ -38,12 +39,18 @@ def main():
 
     if wordcloud:
         out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
+        for text in out.set_labels:
+            text.set_fontsize(18)
         for text in out.subset_labels:
             text.set_fontsize(16)
+            text.set_path_effects([path_effects.shadow()])
     else:
         out = venn3(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
+        for text in out.set_labels:
+            text.set_fontsize(18)
         for text in out.subset_labels:
             text.set_fontsize(16)
+            text.set_path_effects([path_effects.shadow()])
 
     gn.add_current_figure_to_results(caption, dpi=75)
 
