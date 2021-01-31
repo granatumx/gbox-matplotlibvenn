@@ -28,7 +28,7 @@ def main():
     filtered_set1 = dict(filter(lambda elem: (elem[1] >= minScore) & (elem[1] <= maxScore), set1.items()))
     filtered_set2 = dict(filter(lambda elem: (elem[1] >= minScore) & (elem[1] <= maxScore), set2.items()))
     filtered_set3 = dict(filter(lambda elem: (elem[1] >= minScore) & (elem[1] <= maxScore), set3.items()))
-    merged_frequencies = {filtered_set1, filtered_set2, filtered_set3}
+    merged_frequencies = {**filtered_set1, **filtered_set2, **filtered_set3}
 
     packedsets = [set(filtered_set1.keys()), set(filtered_set2.keys()), set(filtered_set3.keys())]
 
