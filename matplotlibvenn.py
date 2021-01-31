@@ -32,14 +32,14 @@ def main():
 
     packedsets = [set(filtered_set1.keys()), set(filtered_set2.keys()), set(filtered_set3.keys())]
 
-    plt.figure()
+    fig, ax = plt.subplots(1,1)
 
     caption = (
         'The area weighted Venn diagram is shown for the gene sets matching the criteria'
     )
 
     if wordcloud:
-        out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3), wordcloud_kwargs=dict(max_font_size=36), word_to_frequency=merged_frequencies)
+        out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3), wordcloud_kwargs=dict(max_font_size=36), word_to_frequency=merged_frequencies, ax=ax)
         for text in out.set_labels:
             if text:
                 text.set_fontsize(18)
