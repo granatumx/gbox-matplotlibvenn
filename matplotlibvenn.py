@@ -50,7 +50,7 @@ def main():
             text.set_fontsize(18)
         for text in out.subset_labels:
             text.set_fontsize(16)
-            text.set_path_effects([path_effects.shadow()])
+            text.set_path_effects([path_effects.SimpleLineShadow()])
 
     gn.add_current_figure_to_results(caption, dpi=75)
 
