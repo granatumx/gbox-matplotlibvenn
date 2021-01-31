@@ -41,7 +41,7 @@ def main():
     else:
         venn3(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
 
-    gn.add_current_figure_to_results(caption, dpi=50)
+    gn.add_current_figure_to_results(caption, dpi=75)
 
     gn.commit()
 
