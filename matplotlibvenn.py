@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from granatum_sdk import Granatum
 from matplotlib_venn_wordcloud import venn3_wordcloud
-from matplotlib_venn import venn3
+from matplotlib_venn import venn3, venn3_circles
 import matplotlib.patheffects as path_effects
 
 
