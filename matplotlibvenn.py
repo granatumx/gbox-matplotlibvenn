@@ -40,10 +40,12 @@ def main():
     if wordcloud:
         out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
         for text in out.set_labels:
-            text.set_fontsize(18)
+            if text:
+                text.set_fontsize(18)
         for text in out.subset_labels:
-            text.set_fontsize(16)
-            text.set_path_effects([path_effects.shadow()])
+            if text:
+                text.set_fontsize(16)
+                text.set_path_effects([path_effects.SimpleLineShadow(), path_effects.Normal()])
     else:
         out = venn3(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
         venn3_circles(packedsets, linestyle='dashed', linewidth=1, color="black")
