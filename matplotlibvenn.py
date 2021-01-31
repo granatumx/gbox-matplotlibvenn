@@ -59,7 +59,7 @@ def main():
                 text.set_fontsize(16)
                 text.set_path_effects([path_effects.SimpleLineShadow(), path_effects.Normal()])
 
-    gn.add_current_figure_to_results(caption, dpi=300)
+    gn.add_current_figure_to_results(caption)
 
     gn.commit()
 
