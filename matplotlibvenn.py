@@ -28,6 +28,7 @@ def main():
     filtered_set1 = dict(filter(lambda elem: (elem[1] >= minScore) & (elem[1] <= maxScore), set1.items()))
     filtered_set2 = dict(filter(lambda elem: (elem[1] >= minScore) & (elem[1] <= maxScore), set2.items()))
     filtered_set3 = dict(filter(lambda elem: (elem[1] >= minScore) & (elem[1] <= maxScore), set3.items()))
+    merged_frequencies = {filtered_set1, filtered_set2, filtered_set3}
 
     packedsets = [set(filtered_set1.keys()), set(filtered_set2.keys()), set(filtered_set3.keys())]
 
@@ -38,7 +39,7 @@ def main():
     )
 
     if wordcloud:
-        out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3), wordcloud_kwargs=dict(max_font_size=16), word_to_frequency=filtered_set1.update(filtered_set2).update(filtered_set3))
+        out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3), wordcloud_kwargs=dict(max_font_size=16), word_to_frequency=merged_frequencies)
         for text in out.set_labels:
             if text:
                 text.set_fontsize(18)
