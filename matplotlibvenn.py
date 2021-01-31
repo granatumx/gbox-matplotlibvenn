@@ -37,9 +37,13 @@ def main():
     )
 
     if wordcloud:
-        venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
+        out = venn3_wordcloud(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
+        for text in out.subset_labels:
+            text.set_fontsize(16)
     else:
-        venn3(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
+        out = venn3(packedsets, set_labels=(labelSet1, labelSet2, labelSet3))
+        for text in out.subset_labels:
+            text.set_fontsize(16)
 
     gn.add_current_figure_to_results(caption, dpi=75)
 
